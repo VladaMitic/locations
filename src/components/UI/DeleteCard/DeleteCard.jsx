@@ -19,15 +19,17 @@ export const DeleteCard = (props) => {
   };
 
   const notification = useMemo(() => {
-    switch (status) {
-      case 'pending':
-        return <LoadingSpinner />;
-      case 'error':
-        return <ErrorNotification title={title} message={message} />;
-      default:
-        return null;
+    if(confirmed) {
+      switch (status ) {
+        case 'pending':
+          return <LoadingSpinner />;
+        case 'error':
+          return <ErrorNotification title={title} message={message} />;
+        default:
+          return null;
+      }
     }
-  }, [status, title, message]);
+  }, [status, title, message, confirmed]);
 
   useEffect(() => {
     if (confirmed && status === 'success') {
