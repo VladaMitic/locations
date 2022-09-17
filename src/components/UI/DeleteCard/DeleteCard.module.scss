@@ -1,7 +1,7 @@
 @import '../../../styles/import.scss';
 
 .card {
-  @include centered();
+  @include centered(center);
   @include blue-round-border();
   width: 100%;
   padding: 2rem 0;
@@ -32,7 +32,7 @@
   }
 
   .actions {
-    @include centered-space-between();
+    @include centered(space-between);
     width: 70%;
   }
 

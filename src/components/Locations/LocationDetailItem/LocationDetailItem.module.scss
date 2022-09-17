@@ -3,7 +3,7 @@
 .input {
   width: 100%;
   margin-bottom: 0.5rem;
-  @include centered-space-between();
+  @include centered(space-between);
 
   input {
     min-width: 40rem;

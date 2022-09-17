@@ -1,11 +1,12 @@
 @import '../../../styles/import.scss';
 
 .title {
-  @include centered();
+  @include centered(center);
   width: 100%;
 
   h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-top: 0;
+    font-family: 'DMSerifDisplay', serif;
   }
 }

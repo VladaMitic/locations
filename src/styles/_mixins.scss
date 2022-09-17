@@ -1,18 +1,12 @@
-@mixin centered() {
+@mixin centered($justify) {
   display: flex;
-  justify-content: center;
+  justify-content: $justify;
   align-items: center;
 }
 
 @mixin centered-column() {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-@mixin centered-space-between() {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
