@@ -1,0 +1,45 @@
+@import '../../../styles/import.scss';
+
+.table {
+  @include blue-round-border();
+
+  font-size: 1.5rem;
+
+  @include breakpoint(tablet) {
+    font-size: 1.1rem;
+  }
+
+  @include breakpoint(bigMobile) {
+    font-size: 1.5rem;
+  }
+
+  thead {
+    background-color: $c-secondary-blue;
+    height: 4rem;
+  }
+
+  th {
+    padding: 1.5px;
+  }
+
+  td {
+    @include blue-round-border();
+    padding: 1.5px;
+  }
+}
+
+.notification {
+  display: block;
+}
+
+@include breakpoint(tablet) {
+  .invisibleTablet {
+    display: none;
+  }
+}
+
+@include breakpoint(bigMobile) {
+  .invisibleBigMobile {
+    display: none;
+  }
+}

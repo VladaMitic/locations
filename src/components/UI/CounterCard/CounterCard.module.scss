@@ -1,0 +1,13 @@
+@import '../../../Styles/import.scss';
+
+.card {
+  @include blue-round-border();
+  margin: 1rem auto;
+  background-color: $c-white;
+  padding: 1rem;
+  width: 45%;
+
+  @include breakpoint(bigMobile) {
+    width: 90%;
+  }
+}

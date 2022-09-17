@@ -1,0 +1,52 @@
+@import '../../../styles/import.scss';
+
+.card {
+  @include centered();
+  @include blue-round-border();
+  width: 100%;
+  padding: 2rem 0;
+
+  .content {
+    @include centered-column();
+    width: 80%;
+  }
+
+  .centered {
+    margin: 3rem auto;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 3rem;
+    color: $c-dark-red;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  hr {
+    @include horizontal-line();
+    width: 60%;
+    margin-bottom: 8rem;
+  }
+
+  .actions {
+    @include centered-space-between();
+    width: 70%;
+  }
+
+  button {
+    font-size: 2rem;
+  }
+
+  .cancel {
+    background-color: $c-dark-red;
+
+    &:hover,
+    &:active {
+      background: $c-light-red;
+      border-color: $c-light-red;
+    }
+  }
+}

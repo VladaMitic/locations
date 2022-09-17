@@ -1,0 +1,22 @@
+@import '../../../styles/import.scss';
+
+.detail {
+  font-size: 1.8rem;
+  @include centered-column();
+
+  .list {
+    width: 90%;
+    @include centered-column();
+  }
+
+  .buttonContainer {
+    display: flex;
+    width:100%;
+    justify-content: flex-end;
+    padding-top: 4rem;
+
+    button {
+      font-size:2rem;
+    }
+  }
+}

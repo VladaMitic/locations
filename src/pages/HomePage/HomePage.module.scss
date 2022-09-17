@@ -1,0 +1,9 @@
+@import '../../styles/import.scss';
+
+.cards {
+  @include centered-space-between();
+
+  @include breakpoint(bigMobile) {
+    flex-direction: column;
+  }
+}

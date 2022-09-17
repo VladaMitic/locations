@@ -1,0 +1,51 @@
+@import '../../../styles/import.scss';
+
+.header {
+  @include centered-space-between();
+  width: 100%;
+  height: 9rem;
+  padding: 0 10%;
+  background-color: $c-primary-blue;
+
+  @include breakpoint(bigMobile) {
+    padding: 0 5%;
+  }
+}
+
+.logo {
+  font-size: 4rem;
+  color: white;
+}
+
+.nav {
+  ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-left: 3rem;
+    font-size: 3rem;
+
+    @include breakpoint(bigMobile) {
+      margin-left: 2rem;
+    }
+
+    @include breakpoint(smallMobile) {
+      margin-left: 1rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $c-secondary-blue;
+
+    &:hover,
+    &:active,
+    &.active {
+      color: $c-active-link;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../../styles/import.scss';
+
+.input {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  @include centered-space-between();
+
+  input {
+    min-width: 40rem;
+    font-size: inherit;
+
+    @include breakpoint(bigMobile) {
+      min-width: 30rem;
+    }
+
+    @include breakpoint(smallMobile) {
+      min-width: 25rem;
+    }
+  }
+}

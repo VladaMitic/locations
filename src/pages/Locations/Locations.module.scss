@@ -1,0 +1,5 @@
+@import '../../Styles/import.scss';
+
+.center {
+  @include centered-column();
+}

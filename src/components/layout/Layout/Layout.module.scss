@@ -1,0 +1,11 @@
+@import '../../../styles/import.scss';
+
+.main {
+  margin: 6rem auto;
+  width: 90%;
+  max-width: 90rem;
+
+  @include breakpoint(bigDesktop) {
+    max-width: 100rem;
+  }
+}

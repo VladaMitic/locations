@@ -1,0 +1,11 @@
+@import '../../../styles/import.scss';
+
+.title {
+  @include centered();
+  width: 100%;
+
+  h1 {
+    font-size: 3rem;
+    margin-top: 0;
+  }
+}

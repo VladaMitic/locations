@@ -1,0 +1,28 @@
+@mixin centered() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin centered-column() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin centered-space-between() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin blue-round-border() {
+  border: 1px solid $c-primary-blue;
+  border-radius: 6px;
+}
+
+@mixin horizontal-line() {
+    height: 3px;
+    color: $c-primary-blue;
+    background-color: $c-primary-blue;
+}

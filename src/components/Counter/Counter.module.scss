@@ -1,0 +1,19 @@
+@import '../../styles/import.scss';
+
+.counter {
+  @include centered-column();
+
+  div {
+    font-size: 10rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 5rem;
+  }
+
+  hr {
+    width: 50%;
+    @include horizontal-line();
+  }
+}
