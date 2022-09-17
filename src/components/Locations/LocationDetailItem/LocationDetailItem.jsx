@@ -3,26 +3,27 @@ import { useEffect, useState } from 'react';
 import classes from './LocationDetailItem.module.scss';
 
 export const LocationDetailItem = (props) => {
-  const {key, label, value } = props.item;
-  const {onUpdate} = props;
+  const { key, label, value } = props.item;
+  const { onUpdate } = props;
+
   const [inputValue, setInputValue] = useState({
     [key]: value === 'null' ? '' : value,
   });
-  
+
   const setInputValueHandler = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setInputValue((prevState) => {
       return {
         ...prevState,
-        [name]: value
-      }
+        [name]: value,
+      };
     });
   };
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       onUpdate(inputValue);
-    }, 1000);
+    }, 2000);
 
     return () => {
       clearTimeout(timeoutId);

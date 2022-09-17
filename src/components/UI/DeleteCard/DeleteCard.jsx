@@ -1,4 +1,4 @@
-import {useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Button } from '../Button';
@@ -10,29 +10,25 @@ import classes from './DeleteCard.module.scss';
 export const DeleteCard = (props) => {
   const [confirmed, setConfirmed] = useState(false);
   const deleteStatus = useSelector((state) => state.ui.notificationDelete);
-  const {status, title, message} = deleteStatus;
-  const {onClose} = props;
+  const { status, title, message } = deleteStatus;
+  const { onClose } = props;
 
   const onConfirmHandler = () => {
-    props.onDeleteConfirm()
+    props.onDeleteConfirm();
     setConfirmed(true);
   };
-  
-  let notification;
-  if (confirmed) {
-    if (status === 'pending') {
-      notification = (
-          <LoadingSpinner />
-      );
+
+  const notification = useMemo(() => {
+    switch (status) {
+      case 'pending':
+        return <LoadingSpinner />;
+      case 'error':
+        return <ErrorNotification title={title} message={message} />;
+      default:
+        return null;
     }
-  
-    if (status === 'error') {
-      notification = (
-          <ErrorNotification title={title} message={message} />
-      );
-    }
-  }
-  
+  }, [status, title, message]);
+
   useEffect(() => {
     if (confirmed && status === 'success') {
       onClose();

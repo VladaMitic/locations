@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -8,12 +8,12 @@ import { Button } from '../../UI/Button';
 import { LocationDetailItem } from '../LocationDetailItem';
 import { LoadingSpinner } from '../../UI/LoadingSpinner';
 import { ErrorNotification } from '../../UI/ErrorNotification';
-import { locationsActions } from '../../../store/Reducers/locations-slice'
+import { locationsActions } from '../../../store/Reducers/locations-slice';
 
 import classes from './LocationDetailsList.module.scss';
 
 export const LocationDetailsList = () => {
-  const location = useSelector(state => state.locations.selectedLocation);
+  const location = useSelector((state) => state.locations.selectedLocation);
   const locationStatus = useSelector((state) => state.ui.notificationLocation);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const LocationDetailsList = () => {
   const backToLocationHandler = () => {
     dispatch(locationsActions.clearSelectedLocation());
     history.push('/locations');
-  }
+  };
 
   const onUpdateHandler = useCallback((receivedInputValue) => {
     setInputValues((prevState) => {
@@ -40,27 +40,28 @@ export const LocationDetailsList = () => {
   //this console.log is placed in purpose to show changes in location object, based on input change on dinamicly rendered input components. This could be used for submit changes of location data
   console.log(inputValues);
 
-  let detailList;
-
-  if (status === 'success') {
-    detailList = transformedLocation.map((item) => (
-      <LocationDetailItem key={item.key} item={item} onUpdate={onUpdateHandler}/>
-    ));
-  }
-
-  if (status === 'pending') {
-    detailList = <LoadingSpinner />;
-  }
-
-  if (status === 'error') {
-    detailList = (
-      <ErrorNotification title={title} message={message} />
-    );
-  }
+  const content = useMemo(() => {
+    switch (status) {
+      case 'pending':
+        return <LoadingSpinner />;
+      case 'error':
+        return <ErrorNotification title={title} message={message} />;
+      case 'success':
+        return transformedLocation.map((item) => (
+          <LocationDetailItem
+            key={item.key}
+            item={item}
+            onUpdate={onUpdateHandler}
+          />
+        ));
+      default:
+        return null;
+    }
+  }, [status, title, message, transformedLocation, onUpdateHandler]);
 
   return (
     <div className={classes.detail}>
-      <div className={classes.list}>{detailList}</div>
+      <div className={classes.list}>{content}</div>
       <div className={classes.buttonContainer}>
         <Button onClick={backToLocationHandler}>Изађи</Button>
       </div>
