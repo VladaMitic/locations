@@ -5,17 +5,23 @@
     }
   }
   @if $point == 'tablet' {
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 950px) {
       @content;
     }
   }
     @if $point == 'bigMobile' {
-    @media only screen and (max-width: 568px) {
+    @media only screen and (max-width: 660px) {
       @content;
     }
   }
-      @if $point == 'smallMobile' {
-    @media only screen and (max-width: 320px) {
+    @if $point == 'smallMobile' {
+    @media only screen and (max-width: 445px) {
+      @content;
+    }
+  }
+
+    @if $point == 'realySmallMobile' {
+    @media only screen and (max-width: 343px) {
       @content;
     }
   }

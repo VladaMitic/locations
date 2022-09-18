@@ -20,12 +20,18 @@ html {
   @include breakpoint(smallMobile) {
     font-size: 30%;
   }
+
+  @include breakpoint(realySmallMobile) {
+    font-size: 25%;
+  }
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   background-color: $c-tertiary-blue;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .centered {
